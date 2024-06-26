@@ -1,0 +1,1355 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+  body {
+    height: 100%;
+    margin: 0px;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+a{
+  color: white;
+}
+  
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+ /* ==================== TIMELINE START ==================== */
+
+/* The actual timeline (the vertical ruler) */
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: rgb(0, 0, 0);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+
+/* Container around content */
+.container {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+
+/* The circles on the timeline */
+.container::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -17px;
+  background-color: rgb(255, 255, 255);
+  border: 4px solid rgb(0, 0, 0);
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Place the container to the left */
+.left {
+  left: 0;
+}
+
+/* Place the container to the right */
+.right {
+  left: 50%;
+}
+
+/* Add arrows to the left container (pointing right) */
+.left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid rgba(0, 0, 0, 0.1);
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent rgba(0, 0, 0, 0.1);
+}
+
+/* Add arrows to the right container (pointing left) */
+.right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid rgba(0, 0, 0, 0.1);
+  border-width: 10px 10px 10px 0;
+  border-color: transparent rgba(0, 0, 0, 0.1) transparent transparent;
+}
+
+/* Fix the circle for containers on the right side */
+.right::after {
+  left: -16px;
+}
+
+/* The actual content */
+.contentpad {
+  padding: 20px 30px;
+  background-color: rgba(0, 0, 0, 0.1);
+  position: relative;
+  border-radius: 6px;
+}
+
+/* Media queries - Responsive timeline on screens less than 600px wide */
+@media screen and (max-width: 1100px) {
+  /* Place the timelime to the left */
+  .timeline::after {
+  left: 31px;
+  }
+  
+  /* Full-width containers */
+  .container {
+  width: 100%;
+  padding-left: 70px;
+  padding-right: 25px;
+  }
+  
+  /* Make sure that all arrows are pointing leftwards */
+  .container::before {
+  left: 60px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+  }
+
+  /* Make sure all circles are at the same spot */
+  .left::after, .right::after {
+  left: 15px;
+  }
+  
+  /* Make all right containers behave like the left ones */
+  .right {
+  left: 0%;
+  }
+}
+
+    /* ==================== TIMELINE END ==================== */
+
+     /* ==================== CARD FLIP START ==================== */
+
+      .homeimage {
+        width: 100%;
+        display: block;
+        border-radius: 8px;
+      }
+      
+      @media (min-width: 500px) {
+        .grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-gap: 2rem;
+        }        
+        .grid-group {
+          margin-bottom: 0;
+        }
+
+      .grid-group-meta {
+        margin: 2rem 0;
+      }
+
+      }
+
+      @media (min-width: 800px) {
+        .grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+      .grid-group {
+        margin-bottom: 3rem;
+      }
+      
+
+    /* ==================== CARD FLIP END ==================== */
+
+    /* ==================== TESTIMONIALS START ==================== */
+    
+
+/* Slideshow container */
+.slideshow-container {
+  position: relative;
+  height: 250px;
+  background: rgb(0, 0, 0, 0);
+}
+
+/* Slides */
+.mySlides {
+  display: none;
+  bottom: 0;
+  padding: 40px;
+  text-align: center;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  line-height: 50%;
+  padding: 25px;
+  color: rgb(80, 80, 80);
+  font-weight: bold;
+  font-size: 20px;
+  user-select: none;
+}
+
+.prev{
+  left: 0;
+}
+/* Position the "next button" to the right */
+.next {
+  position: absolute;
+  right: 0;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+/* The dot/bullet/indicator container */
+.dot-container {
+  left: 48%;
+    position: absolute;
+    top: 380px;
+    text-align: center;
+    background: rgba(221, 221, 221, 0);
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  bottom: 0;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: rgba(187, 187, 187, 0.8);
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+/* Add a background color to the active dot/circle */
+.activetest, .dot:hover {
+  background-color: #ffffff;
+}
+
+/* Add an italic font style to all quotes */
+q {font-style: italic;}
+
+/* Add a blue color to the author */
+.author {color: rgb(255, 255, 255);}
+
+    /* ==================== TESTIMONIALS END ==================== */
+
+    /* ==================== FAQ START ==================== */
+
+  .accordion {
+    background-color: #eee;
+    font-size: 24px; padding: 30px;
+    color: #444;
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    transition: 0.4s;
+  }
+  
+  .activefaq, .accordion:hover {
+    background-color: #ccc;
+  }
+  
+  .panel {
+    padding: 0 18px;
+    background-color: white;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+  }
+li{
+  font-size: 21px;
+  margin-left: 100px;
+}
+
+@media(max-width: 600px ) {
+
+
+
+  q{
+    font-size: 16px;
+    margin-top: 20px;
+  }
+
+  li{
+    font-size: 16px;
+    margin-left: 0px;
+  }
+
+  .dot-container {
+    bottom: -90px;
+    left: 43%;
+}
+}
+
+
+    /* ==================== FAQ END ==================== */
+
+  /* ==================== ABOUT US START ==================== */
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  #overlay1 {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(0, 0, 0);
+    z-index: 2;
+    cursor: pointer;
+  }
+  #overlay2 {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(0, 0, 0);
+    z-index: 2;
+    cursor: pointer;
+  }
+  #overlay3 {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(0, 0, 0);
+    z-index: 2;
+    cursor: pointer;
+  }
+  #overlay4 {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(0, 0, 0);
+    z-index: 2;
+    cursor: pointer;
+  }
+  #overlay5 {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(0, 0, 0);
+    z-index: 2;
+    cursor: pointer;
+  }
+  #overlay6 {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(0, 0, 0);
+    z-index: 2;
+    cursor: pointer;
+  }
+  
+  
+  #text{
+    height: 60vh;
+    overflow: scroll;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: white;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+  }
+
+
+  
+  .contentcard {
+    margin-top: 50px;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 1.5;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+            flex-direction: row;
+    -webkit-box-pack: center;
+            justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    cursor: pointer;
+    width: 400px;
+    height: 600px;
+    margin: 1%;
+    overflow: hidden;
+    border-radius: 8px;
+    position: relative;
+    -webkit-transition: .3s all;
+    transition: .3s all;
+    box-shadow: 0 2px 5px 0 rgba(3, 6, 26, 0.15);
+  }
+
+  @media screen and (min-width: 820px) {
+
+ 
+  .card:hover {
+    -webkit-transform: scale(1.05);
+            transform: scale(1.05);
+  } }
+
+
+  @media screen and (max-width: 1280px) {
+    .card {
+      width: 300px;
+      height: 450px;
+      background-size: 300px 450px;
+      margin-top: 2%;
+      margin-bottom: 2%;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+
+
+    .card {
+      width: 300px;
+      height: 450px;
+      margin-top: 2%;
+      margin-bottom: 2%;
+      background-size: 300px 450px;
+    }
+     } 
+     @media screen and (min-width: 600px) {
+    .cardh3 {
+      font-size: 30px;
+    }
+    .cardh2{
+      font-size: 20px;
+    }
+  }
+.cardtext{
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 120px;
+    width: 100%;
+    padding: 30px;
+    left: 0;
+    bottom: 0;
+    position: absolute;
+    word-wrap: break-word;
+  }
+
+  .cardh3 {
+    position: absolute;
+    text-transform: uppercase;
+    font-size: 20px;
+    margin-bottom: 50px;
+    bottom: 0;
+  }
+
+  .cardh2 {
+    padding-left: 10px;
+    padding-right: 10px;
+    color: white;
+    left: 17px;
+    position: absolute;
+  text-transform: uppercase;
+  font-size: 13px;
+  margin-bottom: 25px;
+  bottom: 0;
+}
+  .card p {
+    padding: 30px;
+    padding-bottom: 15px;
+    left: 0;
+      width: inherit;
+    position: absolute;
+    margin-bottom: 100px;
+    bottom: 0;
+  }
+  
+  .button {
+    position: absolute;
+    left: 30px;
+    bottom: 30px;
+    font-size: 14px;
+    color: white;
+    background: rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 10000px;
+    -webkit-transition: .3s all;
+    transition: .3s all;
+  }
+  .button:hover {
+    background: rgba(255, 255, 255, 0.8);
+    color: #2e2e2e;
+  }
+  
+  .pad-top {
+    padding-top: 20px;
+  }
+  
+  .card-blue-light {
+    background-image: url('img/shravan.jpg');
+    color: white;
+  }
+  
+  .card-yellow {
+    background-image: url('img/vinod.jpg');
+    color: white;
+  }
+  
+  .card-blue-dark {
+    background-image: url('img/mukund.jpg');
+    color: white;
+  }
+  
+  .card-red {
+    background-image: url('img/ratna.jpg');
+    color: white;
+  }
+  
+  .card-purple {
+    background-image: url('img/prasanna.jpg');
+    color: white;
+  }
+  
+  .card-orange {
+    background-image: url('img/lakshana.jpg');
+    color: white;
+  }
+  
+
+  /* ==================== ABOUT US END ==================== */
+
+  /* ==================== GENERAL FORMATTING START ==================== */
+
+  .sidetext{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    display: inline-block;
+  }
+
+p{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 21px;
+  padding: 50px 100px;
+  display: block;
+}
+
+.subheading{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 24px;
+  font-weight: 900;
+  padding: 50px 100px;
+  display: block;
+}
+
+  @media(max-width: 600px ) {
+
+    p{
+      font-size: 16px;
+      padding: 50px 0px;
+    }
+    .sidetext{
+      font-size: 16px;
+    }
+
+    .subheading{
+      font-size: 19px;
+      padding: 0;
+    }
+
+  }
+
+
+  h2{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 50px;
+    text-align: center;
+    color: black;
+    font-weight: 900;
+    }
+    @media(max-width: 1300px ) {
+    
+      h2{
+        font-size: 30px;
+    
+      }
+    }
+    @media(max-width: 800px ) {
+    
+      h2{
+        font-size: 20px;
+    
+      }
+      .nesthead{
+        padding: 20px;
+      }
+
+
+
+    }
+
+  
+    .nesthead{
+      padding: 50px;
+    }
+
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      padding-left: 50px;
+      padding-right: 50px;
+      font-weight: 700;
+      font-size: 70px;
+    }
+
+    @media(max-width: 1400px ) {
+    
+      h1{
+        font-size: 60px;
+      
+
+    
+      }
+    }
+    
+    @media(max-width: 800px ) {
+    
+      h1{
+        font-size: 30px;
+    
+      }
+    }
+
+    
+
+  /* ==================== GENERAL FORMATTING END ==================== */
+
+  /* ==================== CONTENT BELOW LANDING PAGE START ==================== */
+
+  .columnsContainer1{
+    position: relative;
+  }
+
+
+.leftColumn1 {
+  text-align: center;
+  display: block;
+  width: 100vw;
+  margin-bottom: 3em;
+  margin-top: 2em;
+}
+
+.rightColumn1{
+  padding: 10px;
+  margin-bottom: 3em;
+  display: block;
+}
+.mockup{
+  padding: 20px;
+  border-radius: 35px;
+  height: auto;
+  width: 100%;
+} 
+.headspace{
+  display: none;
+  height: 4vw;
+  width: 100%; 
+  color:white;
+  display: inline-block;
+}
+@media(max-width: 1300px ) {
+    .headspace{
+      height: 0px;
+    }
+}
+@media(min-width: 1200px ) {
+  .leftColumn1 {
+    width: 40vw;
+    height: auto;
+    margin: 3em;
+    text-align: center;
+    display: block;
+  }
+
+
+
+  .rightColumn1 { 
+    position: absolute;
+    top: 0;
+    right: 0;
+    max-width: 50vw;
+    margin-bottom: 3em;
+    display: block;
+    margin-top: -20px;
+    margin-bottom: 30px;
+    margin-right: 3em;
+  } 
+
+  img .mockup{
+    height: auto;
+    max-width: 30vw;
+  }
+}
+
+  @media(min-width: 1300px ) {
+  
+    .rightColumn1 { 
+      margin-top: -50px;
+    } 
+  
+}
+
+
+  /* ==================== CONTENT BELOW LANDING PAGE END ==================== */
+
+  /* ==================== FOOTER START ==================== */
+
+  .columnsContainer{
+    position: relative;
+    margin: .2em;
+  }
+
+.leftColumn .rightColumn{
+  padding: 1.25em; }
+
+.leftColumn {
+  margin-bottom: .5em;
+}
+
+@media(min-width: 1200px ) {
+  .leftColumn {
+    margin-right: 19.5em;
+  }
+
+  .rightColumn { position: absolute; top: 0; right: 0; width: 18.75em;} 
+  
+}
+
+
+
+  /* ==================== FOOTER END ==================== */
+
+  /* ==================== NAVBAR START ==================== */
+
+  /* Navbar scroll opacity change START */
+
+  body.scrolled .nav {
+    opacity: 1;
+    background-color: rgba(0, 0, 0, 0.9);
+    transition: background-color .4s;
+  }
+
+
+
+
+  body.scrolled .nav:hover {
+    background-color: rgb(0, 0, 0);
+    transition: background-color .4s;
+  }
+
+  /* Navbar scroll opacity change END */
+
+
+  .nav {     /* Navbar Options */
+    z-index: 99;
+    background-color: transparent;
+    height: 90px;
+    width: 100%;
+    position: fixed;
+    opacity: 1;
+  }
+  
+  .nav > .nav-header {
+    display: inline;
+  }
+  
+  .nav > .nav-header > .nav-title {
+    display: inline-block;
+    font-size: 22px;
+    color: #fff;
+    padding: 20px;
+    padding-left: 40px;
+  }
+  
+  .nav > .nav-btn {
+    display: none;
+  }
+  
+  .nav > .nav-links {
+    float: right;
+    font-size: 20px;
+  }
+  
+  .nav > .nav-links > a {     /* Menu Links formatting */
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    text-decoration: none;
+    font-size: 20px;
+  }
+  
+  .nav > .nav-links > a:hover {    /* What Menu links do on hover */
+    color: white;
+    border-bottom: 3px solid white;
+  }
+
+  a.active{
+    border-bottom: 3px solid white;
+  }
+
+  .nav > #nav-check {
+    display: none;
+  }
+  
+
+  /* Menu converts to hamburger icon code START*/
+
+
+  @media (max-width:1200px) {
+    .nav > .nav-btn {
+      display: inline-block;
+      position: fixed;
+      right: 0px;
+      top: 0px;
+    }
+    a.active{
+      border-bottom: 1px solid rgba(255, 255, 255, 0) ;
+    }
+
+    .nav > .nav-links > a:hover {    /* What Menu links do on hover */
+      color: white;
+      opacity: 0.7;
+      border-bottom: 5px solid rgba(255, 255, 255, 0);
+    }
+
+    .nav > .nav-btn > label {
+      display: inline-block;
+      width: 100px;
+      height: 90px;
+      padding: 20px;
+    }
+    .nav > .nav-btn > label:hover,.nav  #nav-check:checked ~ .nav-btn > label {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    .nav > .nav-links {
+      position: fixed;
+      display: block;
+      width: 100vw;
+      background-color: rgba(0, 0, 0, 0.95);
+      height: 100px;
+      transition: all 0.3s ease-in;
+      overflow-y: hidden;
+      top: 90px;
+      left: 0;
+    }
+    .nav > .nav-links > a {
+      display: block;
+      text-align: center;
+    }
+    .nav > #nav-check:not(:checked) ~ .nav-links {
+      height: 0px;
+    }
+    .nav > #nav-check:checked ~ .nav-links {
+      height: calc(100vh - 50px);
+      overflow-y: auto;
+    }
+  }
+
+    /* Menu converts to hamburger icon code END*/
+
+  /* ==================== NAVBAR ENDS ==================== */
+
+
+  /* ==================== HOMEPAGE PARRALAX START ==================== */
+
+  .bgimg-1, .bgimg-2, .bgimg-3 {
+    position: relative;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+  }
+  .bgimg-1 {
+    min-height: 100vh;
+  }
+  
+  .bgimg-2 {
+    background-image: url("img/hero2.jpg");
+    min-height: 400px;
+  }
+  
+  .bgimg-3 {
+    background-image: url("img/hero3.png");
+    min-height: 550px;
+  }
+  
+  .caption {
+    font-size: 25px;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    text-shadow: 2px 2px 6px #000000;
+  }
+  
+  
+  .para {
+    font: 30px ;
+    color: #111;
+  }
+  
+
+  /* ==================== HOMEPAGE PARRALAX END ==================== */
+
+  
+  /* ==================== LOGIN BUTTON START ==================== */
+
+    #btnn {
+      z-index: 99;
+      box-sizing: border-box;
+      display: inline-block;
+    background: rgba(0, 0, 0, 0);
+    border: 2px solid;
+    line-height: 1.4;
+    text-decoration: none;
+    font-weight: 900;
+    padding: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 40px;
+    margin: 2vw;
+  }
+    #btnn:hover {
+      background: transparent;
+      color: white;
+    }
+  
+
+.btnog {
+  box-sizing: border-box;
+  border-radius: 30px;
+  color: white;
+  cursor: pointer;
+  font-size:16px;
+  font-weight: 400;
+  line-height: 45px;
+  margin: 0 0 2em;
+  max-width: 200px; 
+  position: relative;
+  text-decoration: none;
+  text-transform: uppercase;
+    border: 0 solid;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+    outline-offset: 0px;
+    text-shadow: none;
+    transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+}  
+  .btnog:hover {
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+    
+    text-shadow: 1px 1px 2px #427388; 
+  }
+
+  /* ==================== LOGIN BUTTON END ==================== */
+
+    /* ==================== REGISTER BUTTON START ==================== */
+
+    #btnn1 {
+      z-index: 99;
+      box-sizing: border-box;
+      background: white;
+      border: 2px solid;
+      color: #4276bd;
+      line-height: 1.4;
+      text-decoration: none;
+      font-weight: 900;
+      padding: 20px;
+      padding-left: 30px;
+      padding-right: 30px;
+      border-radius: 40px;
+      margin: 2vw;
+    }
+      #btnn1:hover {
+        background: transparent;
+        color: white;
+      }
+    
+  
+  .btnog1 {
+    box-sizing: border-box;
+    border-radius: 30px;
+    color: #fff;
+    cursor: pointer;
+    display: inline;
+    font-size:16px;
+    font-weight: 400;
+    line-height: 45px;
+    margin: 0 0 2em;
+    max-width: 300px; 
+    position: relative;
+    text-decoration: none;
+    text-transform: uppercase; 
+      border: 0 solid;
+      box-shadow: inset 0 0 20px rgba(255, 255, 255, 0);
+      outline-offset: 0px;
+      text-shadow: none;
+      transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+  }  
+    .btnog1:hover {
+    
+      box-shadow: inset 0 0 20px rgba(255, 255, 255, .5), 0 0 20px rgba(255, 255, 255, .2);
+      
+      text-shadow: 1px 1px 2px #427388; 
+    }
+  
+    /* ==================== REGISTER BUTTON END ==================== */
+
+/* ==================== RESTPAGE ANIMATION START ==================== */
+
+body {
+  margin:0;
+}
+
+
+.header {
+  position:relative;
+  text-align:center;
+  background: linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%);
+  color:white;
+}
+.logo {
+  width:50px;
+  fill:white;
+  padding-right:15px;
+  display:inline-block;
+  vertical-align: middle;
+}
+
+.inner-header {
+    text-transform: uppercase;
+    text-align: left;
+  height:40vh;
+  width:100%;
+  margin: 0;
+  padding-top: 100px;
+
+}
+
+.quote { /*Flexbox for containers*/
+  font-weight: 900;
+  font-style: italic;
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.flex{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.waves {
+  position:relative;
+  width: 100%;
+  height:15vh;
+  margin-bottom:-7px; /*Fix for safari gap*/
+  min-height:100px;
+  max-height:150px;
+}
+
+.content {
+  position:relative;
+  height:20vh;
+  overflow-wrap: break-word;
+  max-width: 100vw;
+  background-color: white;
+  display: inline-block;
+  padding: 100px;
+}
+
+/* Animation */
+
+.parallax > use {
+  animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
+}
+.parallax > use:nth-child(1) {
+  animation-delay: -2s;
+  animation-duration: 7s;
+}
+.parallax > use:nth-child(2) {
+  animation-delay: -3s;
+  animation-duration: 10s;
+}
+.parallax > use:nth-child(3) {
+  animation-delay: -4s;
+  animation-duration: 13s;
+}
+.parallax > use:nth-child(4) {
+  animation-delay: -5s;
+  animation-duration: 20s;
+}
+@keyframes move-forever {
+  0% {
+   transform: translate3d(-90px,0,0);
+  }
+  100% { 
+    transform: translate3d(85px,0,0);
+  }
+}
+/*Shrinking for mobile*/
+@media (max-width: 768px) {
+  .waves {
+    height:40px;
+    min-height:40px;
+  }
+  .content {
+    height:30vh;
+    padding: 30px;
+  }
+  .resttitle {
+    font-size:30px;
+  }
+  .inner-header{
+    height: 30vh;
+    padding-top: 70px;
+  }
+}
+
+/* ==================== RESTPAGE ANIMATION END ==================== */
+
+/* ==================== HOMEPAGE ANIMATION START ==================== */
+
+
+
+
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+
+.context {
+    z-index: 2;
+    width: 100%;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    overflow: hidden;
+    
+}
+
+
+
+
+.area{
+  z-index: 0;
+    background: linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%);
+    background: -webkit linear-gradient(60deg, rgba(84,58,183,1) 0%, rgba(0,172,193,1) 100%);
+    width: 100%;
+    height:100vh;
+    
+   
+}
+
+.circles{
+  z-index: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.diamond{
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    animation: animate 25s linear infinite;
+    bottom: -150px;
+    
+}
+
+.diamond:nth-child(1){
+    left: 25%;
+    width: 80px;
+    height: 80px;
+    animation-delay: 0s;
+}
+
+
+.diamond:nth-child(2){
+    left: 10%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+
+.diamond:nth-child(3){
+    left: 70%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 4s;
+}
+
+.diamond:nth-child(4){
+    left: 40%;
+    width: 60px;
+    height: 60px;
+    animation-delay: 0s;
+    animation-duration: 18s;
+}
+
+.diamond:nth-child(5){
+    left: 65%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 0s;
+}
+
+.diamond:nth-child(6){
+    left: 75%;
+    width: 110px;
+    height: 110px;
+    animation-delay: 3s;
+}
+
+.diamond:nth-child(7){
+    left: 35%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 7s;
+}
+
+.diamond:nth-child(8){
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    animation-delay: 15s;
+    animation-duration: 45s;
+}
+
+.diamond:nth-child(9){
+    left: 20%;
+    width: 15px;
+    height: 15px;
+    animation-delay: 2s;
+    animation-duration: 35s;
+}
+
+.diamond:nth-child(10){
+    left: 85%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 0s;
+    animation-duration: 11s;
+}
+
+
+
+@keyframes animate {
+
+    0%{
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.2;
+        border-radius: 0;
+    }
+
+    100%{
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+
+}
+
+/* ==================== HOMEPAGE ANIMATION END ==================== */
+
